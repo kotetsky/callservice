@@ -1,0 +1,26 @@
+Intent fullScreenIntent = new Intent(this, CallActivity.class);
+PendingIntent fullScreenPendingIntent = PendingIntent.getActivity(this, 0,
+        fullScreenIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+NotificationCompat.Builder notificationBuilder =
+        new NotificationCompat.Builder(this, CHANNEL_ID)
+    .setSmallIcon(R.drawable.notification_icon)
+    .setContentTitle("Incoming call")
+    .setContentText("(919) 555-1234")
+    .setPriority(NotificationCompat.PRIORITY_HIGH)
+    .setCategory(NotificationCompat.CATEGORY_CALL)
+
+    // Use a full-screen intent only for the highest-priority alerts where you
+    // have an associated activity that you would like to launch after the user
+    // interacts with the notification. Also, if your app targets Android 10
+    // or higher, you need to request the USE_FULL_SCREEN_INTENT permission in
+    // order for the platform to invoke this notification.
+    .setFullScreenIntent(fullScreenPendingIntent, true);
+
+Notification incomingCallNotification = notificationBuilder.build();
+
+
+display for the user
+
+// Provide a unique integer for the "notificationId" of each notification.
+startForeground(notificationId, notification);

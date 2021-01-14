@@ -1,0 +1,4 @@
+#Thu Jan 14 23:35:52 EET 2021
+base.0=/home/spikart/AndroidStudioProjects/DrinkIt/app/build/intermediates/dex/debug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
